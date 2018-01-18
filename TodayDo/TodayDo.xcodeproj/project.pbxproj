@@ -12,6 +12,7 @@
 		0371CFDC201025A300F43437 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0371CFDA201025A300F43437 /* LaunchScreen.storyboard */; };
 		0371CFE620102CDF00F43437 /* mainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0371CFE420102CDF00F43437 /* mainVC.swift */; };
 		0371CFE720102CDF00F43437 /* mainVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0371CFE520102CDF00F43437 /* mainVC.xib */; };
+		D475C3CEC820DFF6E45225C4 /* Pods_TodayDo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 215281610BE9866A4C2D0CE4 /* Pods_TodayDo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,9 @@
 		0371CFDD201025A300F43437 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0371CFE420102CDF00F43437 /* mainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainVC.swift; sourceTree = "<group>"; };
 		0371CFE520102CDF00F43437 /* mainVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = mainVC.xib; sourceTree = "<group>"; };
+		215281610BE9866A4C2D0CE4 /* Pods_TodayDo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodayDo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D7747519F364DB28C85CB391 /* Pods-TodayDo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodayDo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TodayDo/Pods-TodayDo.debug.xcconfig"; sourceTree = "<group>"; };
+		FDA025AE795E7905ABF0244B /* Pods-TodayDo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodayDo.release.xcconfig"; path = "Pods/Target Support Files/Pods-TodayDo/Pods-TodayDo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D475C3CEC820DFF6E45225C4 /* Pods_TodayDo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +45,8 @@
 			children = (
 				0371CFD0201025A300F43437 /* TodayDo */,
 				0371CFCF201025A300F43437 /* Products */,
+				4DF0A3715DDB719EFF9A5A65 /* Pods */,
+				EDF062447837FFE104B9982E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -72,6 +79,23 @@
 			path = Sources;
 			sourceTree = "<group>";
 		};
+		4DF0A3715DDB719EFF9A5A65 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D7747519F364DB28C85CB391 /* Pods-TodayDo.debug.xcconfig */,
+				FDA025AE795E7905ABF0244B /* Pods-TodayDo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		EDF062447837FFE104B9982E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				215281610BE9866A4C2D0CE4 /* Pods_TodayDo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -79,9 +103,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0371CFE0201025A300F43437 /* Build configuration list for PBXNativeTarget "TodayDo" */;
 			buildPhases = (
+				F33FCE39236F108F79506D64 /* [CP] Check Pods Manifest.lock */,
 				0371CFCA201025A300F43437 /* Sources */,
 				0371CFCB201025A300F43437 /* Frameworks */,
 				0371CFCC201025A300F43437 /* Resources */,
+				D1481BADD6C75F32E7322877 /* [CP] Embed Pods Frameworks */,
+				5A1AB79F506CAB477898C451 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -138,6 +165,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5A1AB79F506CAB477898C451 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TodayDo/Pods-TodayDo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D1481BADD6C75F32E7322877 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TodayDo/Pods-TodayDo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F33FCE39236F108F79506D64 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0371CFCA201025A300F43437 /* Sources */ = {
@@ -272,6 +347,7 @@
 		};
 		0371CFE1201025A300F43437 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D7747519F364DB28C85CB391 /* Pods-TodayDo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -288,6 +364,7 @@
 		};
 		0371CFE2201025A300F43437 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FDA025AE795E7905ABF0244B /* Pods-TodayDo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
