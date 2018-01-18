@@ -8,20 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		0371CFD2201025A300F43437 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0371CFD1201025A300F43437 /* AppDelegate.swift */; };
-		0371CFD4201025A300F43437 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0371CFD3201025A300F43437 /* ViewController.swift */; };
-		0371CFD7201025A300F43437 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0371CFD5201025A300F43437 /* Main.storyboard */; };
 		0371CFD9201025A300F43437 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0371CFD8201025A300F43437 /* Assets.xcassets */; };
 		0371CFDC201025A300F43437 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0371CFDA201025A300F43437 /* LaunchScreen.storyboard */; };
+		0371CFE620102CDF00F43437 /* mainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0371CFE420102CDF00F43437 /* mainVC.swift */; };
+		0371CFE720102CDF00F43437 /* mainVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0371CFE520102CDF00F43437 /* mainVC.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0371CFCE201025A300F43437 /* TodayDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodayDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0371CFD1201025A300F43437 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0371CFD3201025A300F43437 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		0371CFD6201025A300F43437 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0371CFD8201025A300F43437 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0371CFDB201025A300F43437 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0371CFDD201025A300F43437 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0371CFE420102CDF00F43437 /* mainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainVC.swift; sourceTree = "<group>"; };
+		0371CFE520102CDF00F43437 /* mainVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = mainVC.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +54,22 @@
 		0371CFD0201025A300F43437 /* TodayDo */ = {
 			isa = PBXGroup;
 			children = (
+				0371CFE320102CC000F43437 /* Sources */,
 				0371CFD1201025A300F43437 /* AppDelegate.swift */,
-				0371CFD3201025A300F43437 /* ViewController.swift */,
-				0371CFD5201025A300F43437 /* Main.storyboard */,
 				0371CFD8201025A300F43437 /* Assets.xcassets */,
 				0371CFDA201025A300F43437 /* LaunchScreen.storyboard */,
 				0371CFDD201025A300F43437 /* Info.plist */,
 			);
 			path = TodayDo;
+			sourceTree = "<group>";
+		};
+		0371CFE320102CC000F43437 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				0371CFE420102CDF00F43437 /* mainVC.swift */,
+				0371CFE520102CDF00F43437 /* mainVC.xib */,
+			);
+			path = Sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,7 +133,7 @@
 			files = (
 				0371CFDC201025A300F43437 /* LaunchScreen.storyboard in Resources */,
 				0371CFD9201025A300F43437 /* Assets.xcassets in Resources */,
-				0371CFD7201025A300F43437 /* Main.storyboard in Resources */,
+				0371CFE720102CDF00F43437 /* mainVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,22 +144,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0371CFD4201025A300F43437 /* ViewController.swift in Sources */,
 				0371CFD2201025A300F43437 /* AppDelegate.swift in Sources */,
+				0371CFE620102CDF00F43437 /* mainVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		0371CFD5201025A300F43437 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0371CFD6201025A300F43437 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		0371CFDA201025A300F43437 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
