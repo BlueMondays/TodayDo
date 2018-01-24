@@ -7,4 +7,5 @@ target 'TodayDo' do
 	
   # Pods for TodayDo
 	pod 'RealmSwift'
+	pod 'JBDatePicker'
 end
