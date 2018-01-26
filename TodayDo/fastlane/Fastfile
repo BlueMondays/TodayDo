@@ -27,6 +27,59 @@ platform :ios do
     run_tests
   end
 
+  lane :screenshot do
+
+   # capture_screenshots
+   # capture_screenshots(number_of_retries: 3)
+
+    #frame_screenshots(white: true)
+    build_app(scheme: "TodayDo")
+    #upload_to_app_store                  # upload your app to iTunes Connect
+
+  end
+
+  lane :release do
+# capture_screenshots(number_of_retries: 3)
+
+   #upload_to_app_store
+
+#   produce(
+#    username: 'mrblue.dev@gmail.com',
+#    app_identifier: 'com.mrbluetest.todaydo.ios',
+#    app_name: 'TodayDo',
+#    language: 'Korean',
+#    app_version: '1.0')
+  sync_code_signing(type: "appstore")
+  # build_app(scheme: "TodayDo")
+
+  deliver(
+  	submit_for_review: true,
+  	force: true,
+    skip_binary_upload: true,
+  	metadata_path: "./metadata",
+    submission_information: {
+      add_id_info_limits_tracking: true,
+      add_id_info_serves_ads: true,
+      add_id_info_tracks_action: true,
+      add_id_info_tracks_install: true,
+      add_id_info_uses_idfa: true,
+      content_rights_has_rights: true,
+      content_rights_contains_third_party_content: true,
+      export_compliance_platform: 'ios',
+      export_compliance_compliance_required: false,
+      export_compliance_encryption_updated: false,
+      export_compliance_app_type: nil,
+      export_compliance_uses_encryption: false,
+      export_compliance_is_exempt: false,
+      export_compliance_contains_third_party_cryptography: false,
+      export_compliance_contains_proprietary_cryptography: false,
+      export_compliance_available_on_french_store: false
+    }
+    )
+
+  end
+
+
   desc "Submit a new Beta Build to Apple TestFlight"
   desc "This will also make sure the profile is up to date"
   lane :beta do
@@ -39,13 +92,13 @@ platform :ios do
   end
 
   desc "Deploy a new version to the App Store"
-  lane :release do
-    # sync_code_signing(type: "appstore")
-    capture_screenshots
-    build_app # more options available
-    upload_to_app_store(force: true)
-    # frame_screenshots
-  end
+#  lane :release do
+#    # sync_code_signing(type: "appstore")
+#    capture_screenshots
+#    build_app # more options available
+#    upload_to_app_store(force: true)
+#    # frame_screenshots
+#  end
 
   # You can define as many lanes as you want
 

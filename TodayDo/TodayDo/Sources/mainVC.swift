@@ -149,6 +149,37 @@ class mainVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UITe
 	
 	private func initUI() {
 		
+		if let first = realm.objects(TaskList.self).first {
+			tasks = first.tasks
+			
+		} else if UserDefaults.standard.object(forKey: "isInstallFirst") == nil {
+			let tasklist = TaskList()
+			
+			try? realm.write {
+				realm.add(tasklist)
+			}
+			
+			if let tmp = realm.objects(TaskList.self).first {
+				tasks = tmp.tasks
+				
+				try? realm.write {
+					
+					let addTask1 = Task()
+					addTask1.title = "할일을 완료 하려면 왼쪽에서 오른쪽으로 스와이프 하세요."
+					addTask1.date = Date()
+					
+					let addTask2 = Task()
+					addTask2.title = "상단 고정, 수정, 삭제메뉴는 오른쪽에서 왼쪽으로 스와이프 하세요."
+					addTask2.indexColor = "purple"
+					
+					tasks.insert(addTask1, at: 0)
+					tasks.insert(addTask2, at: 0)
+				}
+			}
+		}
+		
+		tvTaskList.reloadData()
+		
 		lcNavTopSpace.constant = Device.isIphoneX() ? 44 : 20
 		vNavBar.layoutIfNeeded()
 		
@@ -178,21 +209,6 @@ class mainVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UITe
 		vCalender.layer.cornerRadius = 15
 		datePicker.delegate = self
 		
-		if let first = realm.objects(TaskList.self).first {
-			tasks = first.tasks
-		} else {
-			let tasklist = TaskList()
-			try? realm.write {
-				realm.add(tasklist)
-			}
-			
-			if let tmp = realm.objects(TaskList.self).first {
-				tasks = tmp.tasks
-			}
-		}
-		
-		tvTaskList.reloadData()
-	
 		/* 상단 추가 텍스트뷰 악세사리뷰 */
 		let frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 44)
 		let vAccessory1 = UIView(frame: frame)
@@ -395,17 +411,7 @@ class mainVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UITe
 		//		addNewDateIndex = -1
 		
 	}
-//
-//	@objc private func onBtnSubDateMenusDidTouch(sender: UIButton) {
-//		sender.isSelected = !sender.isSelected
-//		sender.alpha = sender.isSelected ? 1 : 0.7
-//
-//		if !sender.isSelected {
-//			addNewDate = nil
-//		} else {
-//
-//		}
-//	}
+
 	
 	/* 서브메뉴 터치시 */
 	@objc private func onBtnSubAddMenusDidTouch(sender: UIButton) {
@@ -768,6 +774,8 @@ class mainVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UITe
 		addNewDate = nil
 		numberOfLines = 1
 		lcTfTaskHeight.constant = 40
+		lcvSubAddMenuTopSpace.constant = vNavBar.frame.height
+		vSubAddMenu.layoutIfNeeded()
 		
 		UIView.animate(withDuration: 0.2,
 					   animations: {
@@ -821,11 +829,15 @@ class mainVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UITe
 		if numberOfLines != lines {
 			numberOfLines = lines
 			
-			if numberOfLines < 7 {
+			if numberOfLines < 3 {
+				let tfHeight = newSize.height > 40 ? newSize.height : 40
 				tfTask.isScrollEnabled = false
-				tfTask.frame.size = CGSize(width: fixedWidth, height: newSize.height)
-				lcTfTaskHeight.constant = newSize.height
+				tfTask.frame.size = CGSize(width: fixedWidth, height: tfHeight)
+				lcTfTaskHeight.constant = tfHeight
 				tfTask.layoutIfNeeded()
+				
+				lcvSubAddMenuTopSpace.constant = tfHeight + lcNavTopSpace.constant + 20
+				vSubAddMenu.layoutIfNeeded()
 			} else {
 				tfTask.isScrollEnabled = true
 				tfTask.setContentOffset(CGPoint(x: 0, y: tfTask.contentSize.height - lcTfTaskHeight.constant), animated: false)
@@ -1074,7 +1086,7 @@ class mainVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UITe
 			textfield.isUserInteractionEnabled = false
 			cell?.contentView.addSubview(textfield)
 			textfield.translatesAutoresizingMaskIntoConstraints = false
-			
+
 			cell?.contentView.addConstraint(NSLayoutConstraint(item: textfield,
 													   attribute: .top,
 													   relatedBy: .equal,
@@ -1082,6 +1094,7 @@ class mainVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UITe
 													   attribute: .top,
 													   multiplier: 1,
 													   constant: 10))
+			
 			let height = NSLayoutConstraint(item: textfield,
 											attribute: .height,
 											relatedBy: .equal,
@@ -1107,7 +1120,7 @@ class mainVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UITe
 													   toItem: cell?.contentView,
 													   attribute: .trailing,
 													   multiplier: 1,
-													   constant: -20))
+													   constant: -10))
 			
 
 			textfield.inputAccessoryView = vAccessory
@@ -1175,16 +1188,13 @@ class mainVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UITe
 		
 		if let lb = label, let height = lb.constraints.filter({ $0.identifier == "height" }).first {
 			
-			let fixedWidth : CGFloat = lb.frame.width
-			let newSize : CGSize = lb.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat(MAXFLOAT)))
+			let fixedWidth = tvTaskList.frame.width - 85
+			let newSize = lb.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat(MAXFLOAT)))
 			
-			let textRectHeight = newSize.height + lb.contentInset.top + lb.contentInset.bottom + lb.textContainerInset.top - lb.textContainerInset.bottom
-			if textRectHeight > 40 {
-				height.constant = textRectHeight
-			} else {
-				height.constant = 40
-			}
-
+			let tfHeight = newSize.height > 40 ? newSize.height : 40
+			lb.isScrollEnabled = true
+			lb.frame.size = CGSize(width: fixedWidth, height: tfHeight)
+			height.constant = tfHeight
 			lb.layoutIfNeeded()
 			
 		}
@@ -1232,6 +1242,10 @@ class mainVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UITe
 	}
 	
 	func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+		
+		guard editCellIndexPath == nil else {
+			return nil
+		}
 		
 		let isFixedOrder = tasks[indexPath.row].isFixedOrder
 		let pin = UITableViewRowAction(style: .normal,

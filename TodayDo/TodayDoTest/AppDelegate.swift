@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  TodayDo
+//  TodayDoTest
 //
-//  Created by 박지연 on 2018. 1. 18..
+//  Created by 박지연 on 2018. 1. 24..
 //  Copyright © 2018년 박지연. All rights reserved.
 //
 
@@ -15,20 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-		
-		
-		self.window = UIWindow(frame: UIScreen.main.bounds)
-
-		let vc = UINavigationController()
-		vc.isNavigationBarHidden = true
-		vc.setViewControllers([mainVC()], animated: false)
-		
-		window = UIWindow(frame: UIScreen.main.bounds)
-		window?.backgroundColor = UIColor.white
-		window?.rootViewController = vc
-		window?.makeKeyAndVisible()
-		
-		
+		// Override point for customization after application launch.
 		return true
 	}
 
