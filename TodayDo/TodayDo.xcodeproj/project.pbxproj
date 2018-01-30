@@ -7,18 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		031E46D32016C93100DB0A36 /* CalenderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 031E46D22016C93100DB0A36 /* CalenderView.xib */; };
 		031E46D5201705A000DB0A36 /* TaskList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031E46D4201705A000DB0A36 /* TaskList.swift */; };
+		031F0563201AFE2B001662D4 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 031F0562201AFE2B001662D4 /* .swiftlint.yml */; };
 		0371CFD2201025A300F43437 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0371CFD1201025A300F43437 /* AppDelegate.swift */; };
 		0371CFD9201025A300F43437 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0371CFD8201025A300F43437 /* Assets.xcassets */; };
 		0371CFDC201025A300F43437 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0371CFDA201025A300F43437 /* LaunchScreen.storyboard */; };
 		0371CFE620102CDF00F43437 /* mainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0371CFE420102CDF00F43437 /* mainVC.swift */; };
 		0371CFE720102CDF00F43437 /* mainVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0371CFE520102CDF00F43437 /* mainVC.xib */; };
 		0371CFEA2010377D00F43437 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0371CFE92010377D00F43437 /* Task.swift */; };
-		0371CFF22011D63800F43437 /* CalenderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0371CFF12011D63800F43437 /* CalenderVC.swift */; };
 		03B8723B20188448006BDD6E /* TodayDoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B8723A20188448006BDD6E /* TodayDoUITests.swift */; };
 		03B8724320188472006BDD6E /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B8724220188472006BDD6E /* SnapshotHelper.swift */; };
-		03BC626220158FE40093B828 /* CalenderVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03BC626120158FE40093B828 /* CalenderVC.xib */; };
 		D475C3CEC820DFF6E45225C4 /* Pods_TodayDo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 215281610BE9866A4C2D0CE4 /* Pods_TodayDo.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,8 +31,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		031E46D22016C93100DB0A36 /* CalenderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalenderView.xib; sourceTree = "<group>"; };
 		031E46D4201705A000DB0A36 /* TaskList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskList.swift; sourceTree = "<group>"; };
+		031F0562201AFE2B001662D4 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		0371CFCE201025A300F43437 /* TodayDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodayDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0371CFD1201025A300F43437 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0371CFD8201025A300F43437 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -43,7 +41,6 @@
 		0371CFE420102CDF00F43437 /* mainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainVC.swift; sourceTree = "<group>"; };
 		0371CFE520102CDF00F43437 /* mainVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = mainVC.xib; sourceTree = "<group>"; };
 		0371CFE92010377D00F43437 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
-		0371CFF12011D63800F43437 /* CalenderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderVC.swift; sourceTree = "<group>"; };
 		03B8722420186D50006BDD6E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03B8722620186D50006BDD6E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		03B8722920186D50006BDD6E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -54,7 +51,6 @@
 		03B8723A20188448006BDD6E /* TodayDoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayDoUITests.swift; sourceTree = "<group>"; };
 		03B8723C20188449006BDD6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03B8724220188472006BDD6E /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
-		03BC626120158FE40093B828 /* CalenderVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalenderVC.xib; sourceTree = "<group>"; };
 		215281610BE9866A4C2D0CE4 /* Pods_TodayDo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodayDo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7747519F364DB28C85CB391 /* Pods-TodayDo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodayDo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TodayDo/Pods-TodayDo.debug.xcconfig"; sourceTree = "<group>"; };
 		FDA025AE795E7905ABF0244B /* Pods-TodayDo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodayDo.release.xcconfig"; path = "Pods/Target Support Files/Pods-TodayDo/Pods-TodayDo.release.xcconfig"; sourceTree = "<group>"; };
@@ -82,6 +78,7 @@
 		0371CFC5201025A300F43437 = {
 			isa = PBXGroup;
 			children = (
+				031F0562201AFE2B001662D4 /* .swiftlint.yml */,
 				0371CFD0201025A300F43437 /* TodayDo */,
 				03B8722320186D50006BDD6E /* TodayDoTest */,
 				03B8723920188448006BDD6E /* TodayDoUITests */,
@@ -119,9 +116,6 @@
 				0371CFE82010375900F43437 /* Model */,
 				0371CFE420102CDF00F43437 /* mainVC.swift */,
 				0371CFE520102CDF00F43437 /* mainVC.xib */,
-				031E46D22016C93100DB0A36 /* CalenderView.xib */,
-				0371CFF12011D63800F43437 /* CalenderVC.swift */,
-				03BC626120158FE40093B828 /* CalenderVC.xib */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -195,6 +189,7 @@
 				0371CFCC201025A300F43437 /* Resources */,
 				D1481BADD6C75F32E7322877 /* [CP] Embed Pods Frameworks */,
 				5A1AB79F506CAB477898C451 /* [CP] Copy Pods Resources */,
+				031F0510201AD917001662D4 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -268,10 +263,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				031E46D32016C93100DB0A36 /* CalenderView.xib in Resources */,
+				031F0563201AFE2B001662D4 /* .swiftlint.yml in Resources */,
 				0371CFDC201025A300F43437 /* LaunchScreen.storyboard in Resources */,
 				0371CFD9201025A300F43437 /* Assets.xcassets in Resources */,
-				03BC626220158FE40093B828 /* CalenderVC.xib in Resources */,
 				0371CFE720102CDF00F43437 /* mainVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -286,6 +280,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		031F0510201AD917001662D4 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
 		5A1AB79F506CAB477898C451 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -341,7 +348,6 @@
 				0371CFD2201025A300F43437 /* AppDelegate.swift in Sources */,
 				031E46D5201705A000DB0A36 /* TaskList.swift in Sources */,
 				0371CFEA2010377D00F43437 /* Task.swift in Sources */,
-				0371CFF22011D63800F43437 /* CalenderVC.swift in Sources */,
 				0371CFE620102CDF00F43437 /* mainVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

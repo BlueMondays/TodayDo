@@ -12,22 +12,26 @@ import RealmSwift
 import JBDatePicker
 
 struct My {
-	static var cellSnapshot : UIView? = nil
+	static var cellSnapshot: UIView? = nil
 }
 struct Path {
-	static var initialIndexPath : NSIndexPath? = nil
+	static var initialIndexPath: NSIndexPath? = nil
 }
 
 struct Device {
-	
 	static func isIphoneX() -> Bool {
 		return	UIScreen.main.nativeBounds.height == 2436
 	}
 }
+
+enum Name {
+	case Jiyoen
+	case Sanghak
+}
 	
 extension UIColor {
 	static func color(r: Int, g: Int, b: Int) -> UIColor {
-		return UIColor.init(red: CGFloat(r)/255, green: CGFloat(g)/255, blue: CGFloat(b)/255, alpha: 1)
+		return UIColor(red: CGFloat(r)/255, green: CGFloat(g)/255, blue: CGFloat(b)/255, alpha: 1)
 	}
 	
 	static func color(_ str: String) -> UIColor {
@@ -54,16 +58,30 @@ extension UIColor {
 	}
 	
 	struct Index {
-		static var red: UIColor  { return UIColor.color(r: 255, g: 38, b: 0) }
-		static var orange: UIColor  { return UIColor.color(r: 255, g: 147, b: 0) }
-		static var yellow: UIColor  { return UIColor.color(r: 255, g: 240, b: 48) }
-		static var green: UIColor  { return UIColor.color(r: 0, g: 144, b: 81) }
-		static var blue: UIColor  { return UIColor.color(r: 0, g: 150, b: 255) }
-		static var purple: UIColor  { return UIColor.color(r: 148, g: 55, b: 255) }
-		static var pink: UIColor  { return UIColor.color(r: 215, g: 131, b: 255) }
-		static var clear: UIColor  { return UIColor.clear }
+		static var red: UIColor {
+			return UIColor.color(r: 255, g: 38, b: 0)
+		}
+		static var orange: UIColor {
+			return UIColor.color(r: 255, g: 147, b: 0)
+		}
+		static var yellow: UIColor {
+			return UIColor.color(r: 255, g: 240, b: 48) }
+		static var green: UIColor {
+			return UIColor.color(r: 0, g: 144, b: 81)
+		}
+		static var blue: UIColor {
+			return UIColor.color(r: 0, g: 150, b: 255)
+		}
+		static var purple: UIColor {
+			return UIColor.color(r: 148, g: 55, b: 255)
+		}
+		static var pink: UIColor {
+			return UIColor.color(r: 215, g: 131, b: 255)
+		}
+		static var clear: UIColor {
+			return UIColor.clear
+		}
 	}
-	
 }
 
 extension Date {
@@ -77,7 +95,7 @@ extension Date {
 		return Calendar.current.date(bySettingHour: 12, minute: 0, second: 0, of: self)!
 	}
 	var month: Int {
-		return Calendar.current.component(.month,  from: self)
+		return Calendar.current.component(.month, from: self)
 	}
 	var isLastDayOfMonth: Bool {
 		return tomorrow.month != month
@@ -85,7 +103,8 @@ extension Date {
 }
 
 class mainVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextViewDelegate, UIGestureRecognizerDelegate, JBDatePickerViewDelegate {
-
+	let abc: () -> (Void) = {}
+	let name: String = "https://github.com/Twigz/Game"
 	@IBOutlet private var tfTask: UITextView!
 	@IBOutlet private var tvTaskList: UITableView!
 	@IBOutlet private var btnAdd: UIButton!
@@ -131,10 +150,8 @@ class mainVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UITe
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(true)
-		
 		tvTaskList.rowHeight = UITableViewAutomaticDimension
 		tvTaskList.estimatedRowHeight = 44
-		
 	}
 	
 	override func viewDidLoad() {
@@ -148,10 +165,8 @@ class mainVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UITe
     }
 	
 	private func initUI() {
-		
 		if let first = realm.objects(TaskList.self).first {
 			tasks = first.tasks
-			
 		} else if UserDefaults.standard.object(forKey: "isInstallFirst") == nil {
 			let tasklist = TaskList()
 			
@@ -159,11 +174,10 @@ class mainVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UITe
 				realm.add(tasklist)
 			}
 			
-			if let tmp = realm.objects(TaskList.self).first {
+			if let tmp = realm.objects(TaskList.self).first, false {
 				tasks = tmp.tasks
 				
 				try? realm.write {
-					
 					let addTask1 = Task()
 					addTask1.title = "할일을 완료 하려면 왼쪽에서 오른쪽으로 스와이프 하세요."
 					addTask1.date = Date()
@@ -368,12 +382,10 @@ class mainVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UITe
 															attribute: .notAnAttribute,
 															multiplier: 1,
 															constant: 50))
-		
 	}
 	
 	/* 서브메뉴 이니셜라이징 */
 	private func initSubAddMenu() {
-		
 		[btnSubAddMunuTop, btnSubAddMunuIndex, btnSubAddMenuDate].forEach({
 			$0?.isSelected = $0 == btnSubAddMunuIndex
 			$0?.addTarget(self, action: #selector(onBtnSubAddMenusDidTouch), for: .touchUpInside)
@@ -409,18 +421,15 @@ class mainVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UITe
 //			btn?.addTarget(self, action: #selector(onBtnSubDateMenusDidTouch), for: .touchUpInside)
 		})
 		//		addNewDateIndex = -1
-		
 	}
 
 	
 	/* 서브메뉴 터치시 */
 	@objc private func onBtnSubAddMenusDidTouch(sender: UIButton) {
-
 		if sender == btnSubAddMunuTop {
 			/* 상단 고정 */
 			sender.isSelected = !sender.isSelected
 			sender.alpha = sender.isSelected ? 1 : 0.7
-			
 		} else if sender == btnSubAddMunuIndex {
 			/* 인덱스 */
 			btnSubAddMenuDate.isSelected = !btnSubAddMenuDate.isSelected
@@ -431,7 +440,6 @@ class mainVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UITe
 			
 			vSubAddMenuIndex.isHidden = false
 			vSubAddMenuDate.isHidden = true
-			
 		} else if sender == btnSubAddMenuDate {
 			/* 날짜 */
 			btnSubAddMunuIndex.isSelected = !btnSubAddMunuIndex.isSelected
@@ -486,7 +494,6 @@ class mainVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UITe
 		})
 		
 		addNewDate = sender.isSelected ? Date() : nil
-		
 	}
 	
 	@IBAction private func onSelectTomorrow(_ sender: UIButton) {
@@ -501,7 +508,6 @@ class mainVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UITe
 		})
 		
 		addNewDate = sender.isSelected ? Date().tomorrow : nil
-		
 	}
 	
 	
@@ -515,7 +521,6 @@ class mainVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UITe
 						self.lcvCalenderTop.constant = -self.vCalender.frame.height
 						self.view.layoutIfNeeded()
 		})
-		
 	}
 	
 	@IBAction private func onCloseCalender(_ sender: UIButton) {
@@ -533,7 +538,6 @@ class mainVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UITe
 	// MARK: - JBDatePickerViewDelegate
 	
 	func didSelectDay(_ dayView: JBDatePickerDayView) {
-		
 		(1...3).forEach({
 			let btn = vSubAddMenuDate.viewWithTag($0) as? UIButton
 			btn?.isSelected = btn == btnSelectDate ? !btnSelectDate.isSelected : false
@@ -543,14 +547,12 @@ class mainVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UITe
 		addNewDate = btnSelectDate.isSelected ? dayView.date : nil
 		
 		if btnSelectDate.isSelected {
-			let df : DateFormatter = DateFormatter()
+			let df: DateFormatter = DateFormatter()
 			df.dateFormat = "MM.dd"
 			btnSelectDate.setTitle(df.string(from: addNewDate!), for: .normal)
-			
 		} else {
 			btnSelectDate.setTitle("날짜 선택", for: .normal)
 		}
-		
 	}
 	
 	//custom first day of week
@@ -725,7 +727,6 @@ class mainVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UITe
 				tasks.insert(newTask, at: index)
 				tvTaskList.insertRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
 			}
-			
 		}
 
 		onAddTaskEndEditing()
@@ -760,10 +761,7 @@ class mainVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UITe
 				if self.tfTask.text.isEmpty {
 					self.initSubAddMenu()
 				}
-			
-			
 		})
-		
 	}
 	
 	@objc private func onAddTaskEndEditing() {
@@ -792,7 +790,6 @@ class mainVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UITe
 	*/
 	
 	func textViewDidBeginEditing(_ textView: UITextView) {
-		
 		if textView == tfTask {
 			vSubAddMenu.isHidden = false
 			vDim.isHidden = false
@@ -802,7 +799,6 @@ class mainVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UITe
 							self.vSubAddMenu.alpha = 1
 							self.vDim.alpha = 0.3
 			})
-			
 		} else {
 			/* 테이블 셀 텍스트 수정 */
 			vSubAddMenu.isHidden = false
@@ -819,8 +815,8 @@ class mainVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UITe
 	
 	func textViewDidChange(_ textView: UITextView) {
 		/* 텍스트 변경 높이 */
-		let fixedWidth : CGFloat = tfTask.frame.size.width
-		let newSize : CGSize = tfTask.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat(MAXFLOAT)))
+		let fixedWidth: CGFloat = tfTask.frame.size.width
+		let newSize: CGSize = tfTask.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat(MAXFLOAT)))
 		
 		let textRectHeight = newSize.height - tfTask.contentInset.top - tfTask.contentInset.bottom - tfTask.textContainerInset.top - tfTask.textContainerInset.bottom
 		let lines = Int(textRectHeight / (tfTask.font?.lineHeight)!)
@@ -846,7 +842,6 @@ class mainVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UITe
 	}
 	
 	@objc private func onTableCellEndEditing() {
-		
 		guard let indexpath = editCellIndexPath,
 			let editcell = tvTaskList.cellForRow(at: indexpath) else {
 				return
@@ -879,7 +874,6 @@ class mainVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UITe
 		var to = 0
 		
 		try! realm.write {
-			
 			if tasks[indexpath.row].isFixedOrder != btnSubAddMunuTop.isSelected {
 				to = btnSubAddMunuTop.isSelected ? 0 : fixOrderlastIndex()
 			}
@@ -902,7 +896,6 @@ class mainVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UITe
 			tf.isEditable = false
 			view.endEditing(true)
 		}
-	
 	}
 	
 	
@@ -1171,7 +1164,6 @@ class mainVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UITe
 												attribute: .notAnAttribute,
 												multiplier: 1,
 												constant: 12))
-			
 		}
 		
 		let task = tasks[indexPath.row]
@@ -1187,7 +1179,6 @@ class mainVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UITe
 		label?.attributedText = attributeString
 		
 		if let lb = label, let height = lb.constraints.filter({ $0.identifier == "height" }).first {
-			
 			let fixedWidth = tvTaskList.frame.width - 85
 			let newSize = lb.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat(MAXFLOAT)))
 			
@@ -1196,13 +1187,12 @@ class mainVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UITe
 			lb.frame.size = CGSize(width: fixedWidth, height: tfHeight)
 			height.constant = tfHeight
 			lb.layoutIfNeeded()
-			
 		}
 		
 		let vIndex = cell?.viewWithTag(2)
 		vIndex?.backgroundColor = UIColor.color(task.indexColor)
 		
-		let df : DateFormatter = DateFormatter()
+		let df: DateFormatter = DateFormatter()
 		df.dateFormat = "MM.dd"
 		
 		let lbDate = cell?.viewWithTag(3) as? UILabel
@@ -1235,14 +1225,12 @@ class mainVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UITe
 	}
 	
 	func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-
 		try? realm.write {
 			tasks.move(from: sourceIndexPath.row, to: destinationIndexPath.row)
 		}
 	}
 	
 	func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-		
 		guard editCellIndexPath == nil else {
 			return nil
 		}
@@ -1253,7 +1241,6 @@ class mainVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UITe
 										handler: { (action, indexpath) in
 											
 											if isFixedOrder {
-												
 												let from = indexpath.row
 												var to = self.tasks.count - 1
 												
@@ -1270,7 +1257,6 @@ class mainVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UITe
 												
 												self.tvTaskList.moveRow(at: IndexPath(row: from, section: 0), to: IndexPath(row: to, section: 0))
 												self.tvTaskList.reloadRows(at: [IndexPath(row: to, section: 0)], with: .automatic)
-												
 											} else {
 												try? self.realm.write {
 													self.tasks.move(from: indexpath.row, to: 0)
@@ -1279,8 +1265,6 @@ class mainVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UITe
 												self.tvTaskList.moveRow(at: indexPath, to: IndexPath(row: 0, section: 0))
 												self.tvTaskList.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
 											}
-											
-											
 		})
 		pin.backgroundColor = UIColor.color(r: 255, g: 195, b: 207)
 		
@@ -1307,8 +1291,7 @@ class mainVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UITe
 											tf.becomeFirstResponder()
 											
 											for cell in tableView.visibleCells {
-												
-												cell.transform = CGAffineTransform.init(translationX: 0, y: editingOffset)
+												cell.transform = CGAffineTransform(translationX: 0, y: editingOffset)
 												if cell != editingCell {
 													cell.alpha = 0.3
 												}
@@ -1330,7 +1313,6 @@ class mainVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UITe
 		
 		return [delete, edit, pin]
 	}
-	
 }
 
 
