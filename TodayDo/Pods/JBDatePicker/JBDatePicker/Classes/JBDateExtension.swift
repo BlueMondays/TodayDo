@@ -10,7 +10,7 @@ import UIKit
 
 extension Date {
     
-    func stripped() -> Date?{
+    public func stripped() -> Date?{
         
         let calendar = Calendar.current
         var components = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: self)

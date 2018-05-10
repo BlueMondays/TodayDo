@@ -1,0 +1,156 @@
+## Swift CodeConvension
+# 루비로 작성된 yml 파일은 에러가 날 경우 더 자세한 문법체크를 권장합니다.
+# http://www.yamllint.com/
+#
+# realm이 만든 SwiftLint를 기본으로 작성하였습니다.
+# 모든 룰에 대해서는 공식 홈페이지를 참고해주세요
+# kr 튜토리얼 : https://github.com/realm/SwiftLint/blob/master/README_KR.md
+# rules 공홈 : https://github.com/realm/SwiftLint/blob/master/Rules.md#explicit-type-interface
+ 
+## 여기에 지정된 룰만 사용합니다.
+whitelist_rules:
+
+  ## 콜론
+  # identifier 옆에 콜론(:)이 존재하여야합니다.
+  # ex :
+  # let ggg: Bool? //(o)
+  # let ggg : Bool? //(x)
+  # let ggg :Bool? //(x)
+  - colon
+    
+  ## 콤마
+  # 콤마(,)를 사용시엔 콤마전엔 공백이 없고, 콤마 후에는 공백을 한칸 둡니다.
+  - comma
+    
+  ## 옵셔널 언래핑
+  # 옵셔널 강제 언랩핑을 허용하지 않습니다.
+  - force_cast
+  - force_try
+
+  ## 최대 한줄 크기는 200입니다.(공백포함)
+  - line_length
+    
+  ## 브레이스(괄호) 사이를 닫을때에는 중간에 여백이 없도록 합니다.
+  - closing_brace
+
+  ## 조건문에서 return값은 새로운라인에 작성합니다.
+  - conditional_returns_on_newline
+  
+  ## 조건문에서 괄호를 생략합니다.
+  - control_statement
+  
+  ## .count보다 .isEmpty 사용을 더 선호합니다.
+  - empty_count
+  
+  ## 맨 마지막 trailing 클로저일 경우, 빈 괄호는 생략합니다.
+  - empty_parentheses_with_trailing_closure
+  
+  ## .init() 사용을 생략합니다.
+  - explicit_init
+  
+  ## fallthrough 사용을 지양합니다.
+  - fallthrough
+  
+  ## 클로저에서 암시적인 리턴 선호
+  - implicit_return
+
+  ## .joined 사용시 파라미터의 값이 ""이면 안됩니다.
+  - joined_default_parameter
+  
+  ## 파라미터 작성시, 사용시 모두 한라인에 작성 혹은 모두 다른 라인에 작성을 권합니다.
+  - multiline_arguments
+  - multiline_parameters
+  
+  ## 하나이상의 클로저를 사용시 trailing Closure는 지양합니다.
+  - multiple_closures_with_trailing_closure
+  
+  ## 브레이스를 열때, 선언부와 동일한 라인에 작성해야 하며, 하나의 스페이스를 허용합니다. 
+  - opening_brace
+  
+  ## IBAction, IBOutlet은 접근제한자 private이 되어야 합니다.
+  - private_action
+  - private_outlet
+  
+  ## 반환 화살표는 앞뒤로 하나의 스페이스 혹은 하나의 라인만 허용합니다. 
+  - return_arrow_whitespace
+  
+  ## 연산자 사용시 shorthand operator 사용을 선호합니다.
+  - shorthand_operator
+  
+  ## else와 catch는 앞뒤로 한칸 띄고 이전 정의와 동일한 라인에 있어야합니다.
+  - statement_position
+  
+  ## switch의 case문은 항상 newline에 작성합니다.
+  - switch_case_on_newline
+  
+  ## 클로저에서 인수를 선언할 때, 괄호를 생략합니다.
+  - unneeded_parentheses_in_closure_argument
+  
+  ## function의 파라미터를 여러줄로 선언 및 호출할 경우 줄 바꿈 여백을 맞추어줍니다.
+   #  - vertical_parameter_alignment
+   #  - vertical_parameter_alignment_on_call
+  
+  - custom_rules
+
+
+## 린트 과정에 포함할 파일 경로. 이 항목이 존재하면 `--path`는 무시됨
+included: 
+#  - Sources
+  - TodayDo
+
+## 린트 과정에서 무시할 파일 경로. `included`보다 우선순위 높음
+excluded: 
+  - Pods
+#  - Source/ExcludedFolder
+#  - Source/ExcludedFile.swift
+
+
+## warning/error 중 옵션을 선택 가능한 부분을 설정합니다.    
+# 옵셔널 강제 언랩핑 금지
+force_cast: warning 
+  
+# 강제 try-catch 구문 금지
+force_try:
+    severity: warning
+
+line_length: 200
+
+custom_rules:
+  # enum의 identifier는 uppercarmelcase
+  define_enumidentifier_to_upper: # 룰 식별자
+    name: "Define_enum_to_upper" # 룰 이름. 선택 가능.
+    regex: "(enum\\s*[a-z]+)" # 패턴 매칭
+    message: "custom enum의 identifier은 대문자여야 합니다." # 위반 메시지. 선택 가능.
+    severity: error # 위반 수준. 선택 가능.
+    
+  # struct의 identifier는 uppercarmelcase
+  define_structidentifier_to_upper: # 룰 식별자
+    name: "Define_structidentifier_to_upper" # 룰 이름. 선택 가능.
+    regex: "(struct\\s*[a-z]+)" # 패턴 매칭
+    message: "custom struct의 identifier은 대문자여야 합니다." # 위반 메시지. 선택 가능.
+    severity: error # 위반 수준. 선택 가능.
+    
+  ## https://github.com/realm/SwiftLint/blob/master/Rules.md#explicit-type-interface
+  # 괄호를 연 후 맨 첫줄은 빈줄이 오면 안됩니다.
+  vertical_whitespace_opening_braces:
+    included: ".*.swift"
+    regex: '[{(\[][ \t]*\n[ \t]*\n'
+    name: "Vertical Whitespace after Opening Braces"
+    message: "괄호를 열고 그 다음 줄이 빈줄이면 안됩니다."
+    severity: warning
+  
+  # 괄호를 닫기 전 맨 첫줄은 빈줄이 오면 안됩니다.
+  vertical_whitespace_closing_braces:
+    included: ".*.swift"
+    regex: '\n[ \t]*\n[ \t]*[)}\]]'
+    name: "Vertical Whitespace before Closing Braces"
+    message: "괄호를 닫기 전 줄이 빈줄이면 안됩니다."
+    severity: warning
+    
+  # 괄호를 닫기 전 맨 첫줄은 빈줄이 오면 안됩니다.
+  vertical_whitespace_closing_braces:
+    included: ".*.swift"
+    regex: '\n[ \t]*\n[ \t]*[)}\]]'
+    name: "Vertical Whitespace before Closing Braces"
+    message: "괄호를 닫기 전 줄이 빈줄이면 안됩니다."
+    severity: warning

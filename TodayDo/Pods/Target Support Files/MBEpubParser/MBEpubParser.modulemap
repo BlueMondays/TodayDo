@@ -1,0 +1,6 @@
+framework module MBEpubParser {
+  umbrella header "MBEpubParser-umbrella.h"
+
+  export *
+  module * { export * }
+}

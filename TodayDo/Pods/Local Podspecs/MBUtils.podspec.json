@@ -1,0 +1,22 @@
+{
+  "name": "MBUtils",
+  "version": "0.5.0",
+  "summary": "iOS용 유틸리티 라이브러리 입니다.",
+  "description": "iOS용 유틸리티 라이브러리 입니다.\n성격별로 폴더로 나누어 관리합니다.",
+  "homepage": "http://jiyeonpark:1001jiyeonpark@yobi.mrblue.com/jiyeonpark/MBUtilsIOS",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "jiyeonpark.1001@gmail.com": "jiyeonpark@mrblue.com"
+  },
+  "source": {
+    "git": "http://jiyeonpark:1001jiyeonpark@yobi.mrblue.com/jiyeonpark/MBUtilsIOS",
+    "tag": "0.5.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "MBUtils/Classes/**/*"
+}
