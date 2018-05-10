@@ -1,0 +1,6 @@
+framework module MBEpubViewer {
+  umbrella header "MBEpubViewer-umbrella.h"
+
+  export *
+  module * { export * }
+}

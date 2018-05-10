@@ -10,6 +10,7 @@ import UIKit
 import Realm
 import RealmSwift
 import JBDatePicker
+import MBEpubParser
 
 struct My {
 	static var cellSnapshot: UIView? = nil
@@ -59,18 +60,19 @@ extension UIColor {
 	
 	struct Index {
 		static var red: UIColor {
-			return UIColor.color(r: 255, g: 38, b: 0)
+			return UIColor.color(r: 166, g: 51, b: 5)
 		}
 		static var orange: UIColor {
-			return UIColor.color(r: 255, g: 147, b: 0)
+			return UIColor.color(r: 216, g: 125, b: 15)
 		}
 		static var yellow: UIColor {
-			return UIColor.color(r: 255, g: 240, b: 48) }
+			return UIColor.color(r: 244, g: 193, b: 39)
+		}
 		static var green: UIColor {
-			return UIColor.color(r: 0, g: 144, b: 81)
+			return UIColor.color(r: 73, g: 184, b: 99)
 		}
 		static var blue: UIColor {
-			return UIColor.color(r: 0, g: 150, b: 255)
+			return UIColor.color(r: 77, g: 155, b: 166)
 		}
 		static var purple: UIColor {
 			return UIColor.color(r: 148, g: 55, b: 255)
@@ -909,6 +911,54 @@ class mainVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UITe
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return tasks.count
+	}
+	
+	func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+		return 60
+	}
+	
+	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+		let view = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 60))
+		view.backgroundColor = UIColor.color(r: 250, g: 211, b: 208)
+		let df: DateFormatter = DateFormatter()
+		df.dateFormat = "오늘은 yyyy년 MM월 dd일"
+		Date().stripped()
+		let lb = UILabel()
+		lb.font = UIFont.systemFont(ofSize: 30, weight: .light)
+		lb.text = df.string(from: Date())
+		view.addSubview(lb)
+		lb.translatesAutoresizingMaskIntoConstraints = false
+		
+		view.addConstraint(NSLayoutConstraint(item: lb,
+											  attribute: .top,
+											  relatedBy: .equal,
+											  toItem: view,
+											  attribute: .top,
+											  multiplier: 1,
+											  constant: 0))
+		view.addConstraint(NSLayoutConstraint(item: lb,
+											  attribute: .bottom,
+											  relatedBy: .equal,
+											  toItem: view,
+											  attribute: .bottom,
+											  multiplier: 1,
+											  constant: 0))
+		view.addConstraint(NSLayoutConstraint(item: lb,
+											  attribute: .trailing,
+											  relatedBy: .equal,
+											  toItem: view,
+											  attribute: .trailing,
+											  multiplier: 1,
+											  constant: 0))
+		view.addConstraint(NSLayoutConstraint(item: lb,
+											  attribute: .leading,
+											  relatedBy: .equal,
+											  toItem: view,
+											  attribute: .leading,
+											  multiplier: 1,
+											  constant: 10))
+		
+		return view
 	}
 	
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

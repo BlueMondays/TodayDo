@@ -9,6 +9,21 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>MBEpubParser.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<true/>
+		</dict>
+		<key>MBEpubViewer.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>MBUtils.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-TodayDo.xcscheme</key>
 		<dict>
 			<key>isShown</key>

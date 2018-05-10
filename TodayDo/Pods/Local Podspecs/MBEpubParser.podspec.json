@@ -1,0 +1,38 @@
+{
+  "name": "MBEpubParser",
+  "version": "0.1.0",
+  "summary": "A short description of MBEpubParser.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/Hayden Kang/MBEpubParser",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Hayden Kang": "hayden4844@mrblue.com"
+  },
+  "source": {
+    "git": "http://hayden4844@yobi.mrblue.com/hayden4844/MBEpubParserIOS",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "MBEpubParser/Classes/**/*",
+  "xcconfig": {
+    "HEADER_SEARCH_PATHS": "$(SDKROOT)/usr/include/libxml2"
+  },
+  "prefix_header_contents": "#import \"MBEpubPrefixHeader.pch\"",
+  "libraries": "xml2",
+  "resources": [
+    "MBEpubParser/Assets/*.*"
+  ],
+  "subspecs": [
+    {
+      "name": "no-arc",
+      "source_files": "MBEpubParser/Classes/ExtraLibrary/VTPG/VTPG_Common.{h,m}",
+      "requires_arc": false,
+      "compiler_flags": "-fno-objc-arc"
+    }
+  ]
+}

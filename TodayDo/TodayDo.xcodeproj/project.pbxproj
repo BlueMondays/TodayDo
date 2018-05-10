@@ -51,6 +51,8 @@
 		03B8723A20188448006BDD6E /* TodayDoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayDoUITests.swift; sourceTree = "<group>"; };
 		03B8723C20188449006BDD6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03B8724220188472006BDD6E /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
+		03C002762033D3CD003802AA /* TodayDo-Bridge-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TodayDo-Bridge-Header.h"; sourceTree = "<group>"; };
+		03C002902033E4C0003802AA /* MBEpubParser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MBEpubParser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		215281610BE9866A4C2D0CE4 /* Pods_TodayDo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodayDo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7747519F364DB28C85CB391 /* Pods-TodayDo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodayDo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TodayDo/Pods-TodayDo.debug.xcconfig"; sourceTree = "<group>"; };
 		FDA025AE795E7905ABF0244B /* Pods-TodayDo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodayDo.release.xcconfig"; path = "Pods/Target Support Files/Pods-TodayDo/Pods-TodayDo.release.xcconfig"; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				0371CFE82010375900F43437 /* Model */,
 				0371CFE420102CDF00F43437 /* mainVC.swift */,
 				0371CFE520102CDF00F43437 /* mainVC.xib */,
+				03C002762033D3CD003802AA /* TodayDo-Bridge-Header.h */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -171,6 +174,7 @@
 		EDF062447837FFE104B9982E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				03C002902033E4C0003802AA /* MBEpubParser.framework */,
 				215281610BE9866A4C2D0CE4 /* Pods_TodayDo.framework */,
 			);
 			name = Frameworks;
@@ -511,15 +515,19 @@
 			baseConfigurationReference = D7747519F364DB28C85CB391 /* Pods-TodayDo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = US3WT66NHZ;
 				INFOPLIST_FILE = TodayDo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mrbluetest.todaydo.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/jiyeonpark/Documents/what i am doing/TodayDo/TodayDo/TodayDo/Sources/TodayDo-Bridge-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
@@ -528,15 +536,19 @@
 			baseConfigurationReference = FDA025AE795E7905ABF0244B /* Pods-TodayDo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = US3WT66NHZ;
 				INFOPLIST_FILE = TodayDo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mrbluetest.todaydo.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/jiyeonpark/Documents/what i am doing/TodayDo/TodayDo/TodayDo/Sources/TodayDo-Bridge-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};

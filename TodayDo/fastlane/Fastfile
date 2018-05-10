@@ -38,21 +38,15 @@ platform :ios do
 
   end
 
-  lane :release do
-# capture_screenshots(number_of_retries: 3)
+  lane :update do 
+    sync_code_signing(type: "appstore")
 
-   #upload_to_app_store
+    gym(scheme: "TodayDo", 
+	 export_method: "app-store")
 
-#   produce(
-#    username: 'mrblue.dev@gmail.com',
-#    app_identifier: 'com.mrbluetest.todaydo.ios',
-#    app_name: 'TodayDo',
-#    language: 'Korean',
-#    app_version: '1.0')
-  sync_code_signing(type: "appstore")
-  # build_app(scheme: "TodayDo")
+    upload_to_app_store
 
-  deliver(
+    deliver(
   	submit_for_review: true,
   	force: true,
     skip_binary_upload: true,
@@ -76,6 +70,85 @@ platform :ios do
       export_compliance_available_on_french_store: false
     }
     )
+   end
+
+
+
+
+  lane :release do
+# capture_screenshots(number_of_retries: 3)
+
+   #upload_to_app_store
+
+#   produce(
+#    username: 'mrblue.dev@gmail.com',
+#    app_identifier: 'com.mrbluetest.todaydo.ios',
+#    app_name: 'TodayDo',
+#    language: 'Korean',
+#    app_version: '1.0')
+  
+  # build_app(scheme: "TodayDo")
+
+  deliver(
+  	submit_for_review: true,
+  	force: true,
+    skip_binary_upload: true,
+  	metadata_path: "./metadata",
+	ipa: ".",
+    submission_information: {
+      add_id_info_limits_tracking: true,
+      add_id_info_serves_ads: true,
+      add_id_info_tracks_action: true,
+      add_id_info_tracks_install: true,
+      add_id_info_uses_idfa: true,
+      content_rights_has_rights: true,
+      content_rights_contains_third_party_content: true,
+      export_compliance_platform: 'ios',
+      export_compliance_compliance_required: false,
+      export_compliance_encryption_updated: false,
+      export_compliance_app_type: nil,
+      export_compliance_uses_encryption: false,
+      export_compliance_is_exempt: false,
+      export_compliance_contains_third_party_cryptography: false,
+      export_compliance_contains_proprietary_cryptography: false,
+      export_compliance_available_on_french_store: false
+    }
+    )
+
+
+#    sync_code_signing(type: "appstore")
+
+#    build_app(scheme: "TodayDo")
+
+    deliver(
+  	submit_for_review: true,
+  	force: true,
+       skip_binary_upload: true,
+  	metadata_path: "./fastlane/metadata",
+#       app_version: "1.0.2",
+       automatic_release: true,
+    submission_information: {
+      add_id_info_limits_tracking: true,
+      add_id_info_serves_ads: true,
+      add_id_info_tracks_action: true,
+      add_id_info_tracks_install: true,
+      add_id_info_uses_idfa: true,
+      content_rights_has_rights: true,
+      content_rights_contains_third_party_content: true,
+      export_compliance_platform: 'ios',
+      export_compliance_compliance_required: false,
+      export_compliance_encryption_updated: false,
+      export_compliance_app_type: nil,
+      export_compliance_uses_encryption: false,
+      export_compliance_is_exempt: false,
+      export_compliance_contains_third_party_cryptography: false,
+      export_compliance_contains_proprietary_cryptography: false,
+      export_compliance_available_on_french_store: false
+    }
+    )
+
+
+
 
   end
 

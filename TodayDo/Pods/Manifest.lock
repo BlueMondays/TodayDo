@@ -1,20 +1,50 @@
 PODS:
   - JBDatePicker (1.2.5)
-  - Realm (3.1.0):
-    - Realm/Headers (= 3.1.0)
-  - Realm/Headers (3.1.0)
-  - RealmSwift (3.1.0):
-    - Realm (= 3.1.0)
+  - MBEpubParser (0.1.0):
+    - MBEpubParser/no-arc (= 0.1.0)
+  - MBEpubParser/no-arc (0.1.0)
+  - MBEpubViewer (0.1.0)
+  - MBUtils (0.5.0)
+  - Realm (3.1.1):
+    - Realm/Headers (= 3.1.1)
+  - Realm/Headers (3.1.1)
+  - RealmSwift (3.1.1):
+    - Realm (= 3.1.1)
 
 DEPENDENCIES:
   - JBDatePicker
+  - MBEpubParser (from `http://jiyeonpark:1001jiyeonpark@yobi.mrblue.com/hayden4844/MBEpubParserIOS`)
+  - MBEpubViewer (from `http://jiyeonpark:1001jiyeonpark@yobi.mrblue.com/hayden4844/MBEpubViewerIOS`)
+  - MBUtils (from `http://jiyeonpark:1001jiyeonpark@yobi.mrblue.com/jiyeonpark/MBUtilsIOS`)
   - RealmSwift
+
+EXTERNAL SOURCES:
+  MBEpubParser:
+    :git: http://jiyeonpark:1001jiyeonpark@yobi.mrblue.com/hayden4844/MBEpubParserIOS
+  MBEpubViewer:
+    :git: http://jiyeonpark:1001jiyeonpark@yobi.mrblue.com/hayden4844/MBEpubViewerIOS
+  MBUtils:
+    :git: http://jiyeonpark:1001jiyeonpark@yobi.mrblue.com/jiyeonpark/MBUtilsIOS
+
+CHECKOUT OPTIONS:
+  MBEpubParser:
+    :commit: 7973e97a1d67843b7cf29cea2de80c0b59c4a42b
+    :git: http://jiyeonpark:1001jiyeonpark@yobi.mrblue.com/hayden4844/MBEpubParserIOS
+  MBEpubViewer:
+    :commit: 42d82addcc63b6d15df3ddf8815abd9e7cf6e9fe
+    :git: http://jiyeonpark:1001jiyeonpark@yobi.mrblue.com/hayden4844/MBEpubViewerIOS
+  MBUtils:
+    :commit: 2720f73c11935f8b875ab5018b196103b8a2c2c9
+    :git: http://jiyeonpark:1001jiyeonpark@yobi.mrblue.com/jiyeonpark/MBUtilsIOS
 
 SPEC CHECKSUMS:
   JBDatePicker: 0e791c8a79c49b0d37decea28ba147515bf5cfca
-  Realm: 09513d7c054678d65cd02ce09871f805b0d758ac
-  RealmSwift: e868fee9b10e5490ad94b6b6ecd9027944da1824
+  MBEpubParser: b5c742a392516007971fc8fb9b03c245c94eca47
+  MBEpubViewer: 40190d91bbae0e60d7fce385591e5b6bd77ea16a
+  MBUtils: cf147fcaccef338b467ea3accc60942855e4dae1
+  Realm: 42d1c38a5b1bbcc828b48a7ce702cb86fc68adf4
+  RealmSwift: d31937ca6a6ee54acde64ec839523c0a3c04924b
 
-PODFILE CHECKSUM: 9d2fa45c8bb7118b7538eb979f896e5de5fdfcd0
+PODFILE CHECKSUM: ae8098bc4116100b8710c1270f9a0122ba05131b
 
 COCOAPODS: 1.2.1

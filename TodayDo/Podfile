@@ -1,6 +1,7 @@
 source 'https://github.com/CocoaPods/Specs.git'
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+platform :ios, '9.0'
+use_frameworks!
 
 target 'TodayDo' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
@@ -9,4 +10,7 @@ target 'TodayDo' do
   # Pods for TodayDo
 	pod 'RealmSwift'
 	pod 'JBDatePicker'
+	pod 'MBUtils', :git => 'http://jiyeonpark:1001jiyeonpark@yobi.mrblue.com/jiyeonpark/MBUtilsIOS'
+	pod 'MBEpubViewer', :git => 'http://jiyeonpark:1001jiyeonpark@yobi.mrblue.com/hayden4844/MBEpubViewerIOS'
+	pod 'MBEpubParser', :git => 'http://jiyeonpark:1001jiyeonpark@yobi.mrblue.com/hayden4844/MBEpubParserIOS'Could not build Objective-C module 'MBEpubParser'
 end
